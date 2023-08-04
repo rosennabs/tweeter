@@ -1,0 +1,11 @@
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(400px + 280px);
+  width: 100%;
+  background-color: rgb(241, 159, 16);
+  background-image: url("https://www.transparenttextures.com/patterns/dark-leather.png");
+  color:antiquewhite;
+}
