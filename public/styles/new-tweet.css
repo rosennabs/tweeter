@@ -9,6 +9,7 @@
 
 hr {
   height: 2px;
+  width: 100%;
   background-color: #545149;
 }
 
@@ -32,4 +33,49 @@ hr {
 
 .invalid {
   color: red;
+}
+
+.tweet-container {
+  margin-top: 50px;
+  border: 3px solid #545149;
+  height: 230px;
+  padding: 0px 20px;
+}
+
+.tweet-container:hover {
+  box-shadow:
+    4px 4px 1px #4056A1,
+    /* Outer outline */
+    4px 4px 2px #4056A1;
+  /* Inner shadow */
+}
+
+.tweet-container header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.username {
+ opacity: 0.4;
+ color:#4056A1;
+}
+
+.tweet-container footer {
+  margin-top: -10px;
+  font-size: medium;
+  
+}
+
+.tweet-icons {
+  color:#4056A1;
+  float: right;
+  display: flex;
+  gap: 10px;
+}
+
+.tweet-icons i:hover {
+  color:coral;
+
 }
