@@ -57,7 +57,7 @@ hr {
 
 }
 
-.username {
+.handle {
  opacity: 0.4;
  color:#4056A1;
 }
@@ -77,5 +77,4 @@ hr {
 
 .tweet-icons i:hover {
   color:coral;
-
 }
