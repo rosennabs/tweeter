@@ -35,14 +35,14 @@ hr {
   color: red;
 }
 
-.tweet-container {
+#tweet-container article {
   margin-top: 50px;
   border: 3px solid #545149;
   height: 230px;
   padding: 0px 20px;
 }
 
-.tweet-container:hover {
+#tweet-container article:hover {
   box-shadow:
     4px 4px 1px #4056A1,
     /* Outer outline */
@@ -50,11 +50,22 @@ hr {
   /* Inner shadow */
 }
 
-.tweet-container header{
+#tweet-container header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
+}
+
+.icon-name {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon-name img {
+  height: 40px;
+  width: 40px;
 }
 
 .handle {
@@ -62,7 +73,7 @@ hr {
  color:#4056A1;
 }
 
-.tweet-container footer {
+#tweet-container footer {
   margin-top: -10px;
   font-size: medium;
   
