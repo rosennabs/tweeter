@@ -19,7 +19,16 @@ hr {
   color: white;
   border: none;
   height: 40px;
-  padding: 5px 10px 5px 10px;
+  padding: 5px 10px;
+}
+
+.new-tweet button:hover {
+  border: 1.5px solid black;
+  box-shadow:
+    0px 0px 10px rgb(241, 159, 16),
+    /* Outer outline */
+    0px 0px 10px rgb(241, 159, 16);
+  /* Inner shadow */
 }
 
 .submit-counter-box {
@@ -87,5 +96,5 @@ hr {
 }
 
 .tweet-icons i:hover {
-  color:coral;
+  color:rgb(241, 159, 16);
 }
