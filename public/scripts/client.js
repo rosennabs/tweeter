@@ -5,32 +5,6 @@
  */
 
 
-const tweetData = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
- 
 
 /* Take an array of tweet objects and append each one to the #tweet-container.*/
 function renderTweets(tweetData) {
@@ -43,6 +17,9 @@ function renderTweets(tweetData) {
 
 /* Take a tweet object and return a tweet <article> containing the entire HTML structure of the tweet.*/
 function createTweetElement(tweetData) {
+
+  const timePassed = timeago.format(tweetData.created_at, 'en_CA');
+
   const tweetArticle = `
     <article>
       <header>
@@ -56,7 +33,7 @@ function createTweetElement(tweetData) {
       <p> <h4>${tweetData.content.text}</h4> </p>
       <hr>
       <footer>
-        <p> ${tweetData.created_at} <span class="tweet-icons">
+        <p> ${timePassed} <span class="tweet-icons">
         <i class="fa-solid fa-flag"></i>
         <i class="fa-solid fa-retweet"></i>
         <i class="fa-solid fa-heart"></i>
@@ -66,6 +43,46 @@ function createTweetElement(tweetData) {
   return tweetArticle;
 };
 
-$(document).ready(() => {
-  renderTweets(tweetData);
+
+$(document).ready(function () {
+
+
+  // Using JQuery, add an event listener to prevent default page reload behaviour
+
+  const $submitTweet = $('.new-tweet');
+
+  $submitTweet.on('submit', (event) => {
+    event.preventDefault();
+    const $tweet = $('#tweet-text').serialize(); //turn the form data into a query string
+
+    $.ajax({ //use ajax to send the POST request to the server endpoint /tweets
+      type: "POST",
+      url: "http://localhost:8080/tweets",
+      data: $tweet,
+      success: function (response) {
+        console.log("Success:", response);
+      },
+      error: function (xhr, status, error) {
+        console.log("Error:", error);
+      }
+    });
+  });
+
+  function loadTweets() {
+    $.ajax({ //use ajax to send the GET tweets from /tweets page
+      type: "GET",
+      url: "http://localhost:8080/tweets",
+      success: function (response) {
+        console.log("Success: tweets loaded", response);
+        renderTweets(response);
+      },
+      error: function (xhr, status, error) {
+        console.log("Error: tweets not loaded", error);
+      }
+    });
+    
+  };
+
+  loadTweets();
+
 });
