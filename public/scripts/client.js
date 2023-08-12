@@ -10,7 +10,7 @@
 function renderTweets(tweetData) {
   for (let tweet of tweetData) {
     const tweetArticle = createTweetElement(tweet);
-    $('#tweet-container').append(tweetArticle);
+    $('#tweet-container').prepend(tweetArticle);
   }
 };
 
@@ -67,6 +67,10 @@ $(document).ready(function () {
         data: $tweet,
         success: function (response) {
           console.log("Success:", response);
+
+          // Load the latest tweets after successfully posting
+          loadTweets();
+
         },
         error: function (xhr, status, error) {
           console.log("Error:", error);
@@ -78,8 +82,9 @@ $(document).ready(function () {
     } else if (lengthOfTweet > charLimit) {
       alert("Tweet exceeds character limit.");
     }
-    
+
   });
+
 
   function loadTweets() {
     $.ajax({ //use ajax to send the GET tweets from /tweets page
@@ -95,7 +100,7 @@ $(document).ready(function () {
     });
     
   };
-
-  loadTweets();
+  
+  loadTweets()
 
 });
