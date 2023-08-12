@@ -53,19 +53,32 @@ $(document).ready(function () {
 
   $submitTweet.on('submit', (event) => {
     event.preventDefault();
-    const $tweet = $('#tweet-text').serialize(); //turn the form data into a query string
 
-    $.ajax({ //use ajax to send the POST request to the server endpoint /tweets
-      type: "POST",
-      url: "http://localhost:8080/tweets",
-      data: $tweet,
-      success: function (response) {
-        console.log("Success:", response);
-      },
-      error: function (xhr, status, error) {
-        console.log("Error:", error);
-      }
-    });
+    const lengthOfTweet = $('#tweet-text').val().length;
+    const charLimit = 140;
+
+    if (lengthOfTweet !== 0 && lengthOfTweet <= charLimit) {
+
+      const $tweet = $('#tweet-text').serialize(); //turn the form data into a query string
+
+      $.ajax({ //use ajax to send the POST request to the server endpoint /tweets
+        type: "POST",
+        url: "http://localhost:8080/tweets",
+        data: $tweet,
+        success: function (response) {
+          console.log("Success:", response);
+        },
+        error: function (xhr, status, error) {
+          console.log("Error:", error);
+        }
+      });
+    } else if (lengthOfTweet === 0){
+      alert("Tweet cannot be empty, please write your message.");
+
+    } else if (lengthOfTweet > charLimit) {
+      alert("Tweet exceeds character limit.");
+    }
+    
   });
 
   function loadTweets() {
