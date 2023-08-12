@@ -30,7 +30,7 @@ function createTweetElement(tweetData) {
         <p class="handle"> ${tweetData.user.handle} </p> 
       </header>
 
-      <p> <h4>${tweetData.content.text}</h4> </p>
+      <p> <h4>${escape(tweetData.content.text)}</h4> </p>
       <hr>
       <footer>
         <p> ${timePassed} <span class="tweet-icons">
@@ -104,3 +104,10 @@ $(document).ready(function () {
   loadTweets()
 
 });
+
+//Prevent cross-site scripting with escaping
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
