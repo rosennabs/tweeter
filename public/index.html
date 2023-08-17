@@ -33,6 +33,8 @@
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    <script type="text/javascript" src="/scripts/composer.js"></script>
+    
 
   
   </head>
@@ -44,17 +46,17 @@
       <span id="logo">tweeter</span>
       <div class="write-tweet">
         <span><b>Write</b> a new tweet</span>
-        <i class="fa-solid fa-angles-down fa-fade"></i>
+        <i id= "compose-tweet-arrow" class="fa-solid fa-angles-down fa-fade"></i>
       </div>
     </nav>
 
     <header class="main-header">
       <div>
-        <img src="/images/profile-hex.png">
+        <img src="/images/profile-hex.png" alt="Profile avatar">
       </div>
       <br>
       <div>
-        <h2>Rose Francis</h2>
+        <h2> Rose <span> Francis</span></h2>
       </div>
     </header>
 
@@ -63,7 +65,10 @@
     <main class="container">
 
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
+        <div id="error-message">
+
+        </div>
+
         <form>
           <label for="tweet-text"><h3>What are you humming about?</h3></label>
           <textarea name="text" id="tweet-text"></textarea>
@@ -72,12 +77,18 @@
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
+
         </form>
       </section>
 
       <section id="tweet-container">
        
       </section>
+
+      <div>
+        <button id="toggle-up" type="button"> <i class="fa-solid fa-angles-up fa-bounce"> </i></button>
+      </div>
+      
 
     </main>
     

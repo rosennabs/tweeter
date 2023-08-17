@@ -1,7 +1,6 @@
 nav {
   display: flex;
-  flex-wrap: wrap;
-  align-content: flex-end;
+  align-items: center;
   justify-content: space-between;
   background-color: #4056A1;
   color: white;
@@ -24,6 +23,11 @@ nav {
   padding-bottom: 5px;
 }
 
-.fa-angles-down {
+#compose-tweet-arrow {
   color:rgba(247, 42, 42, 0.925);
+}
+
+#compose-tweet-arrow:hover {
+  color: greenyellow;
+  cursor: pointer;
 }
