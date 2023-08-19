@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   height: calc(400px + 120px);
-  padding-top: 120px;
+  padding-top: 100px;
   width: 100%;
   background-color: rgb(241, 159, 16);
   background-image: url("https://www.transparenttextures.com/patterns/dark-leather.png");
@@ -16,7 +16,7 @@
   margin: -50px;
 }
 
-.main-header span {
+.profile-name span {
   font-family: 'Source Sans 3', sans-serif;
   font-weight: 100;
 }

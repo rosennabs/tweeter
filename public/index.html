@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <!-- Meta Information -->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/>
     <title>Tweeter - Home Page</title>
 
     <!-- External CSS -->
@@ -20,6 +21,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/screen-designs.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -50,12 +52,14 @@
       </div>
     </nav>
 
+    <div class="header-and-main">
+
     <header class="main-header">
       <div>
         <img src="/images/profile-hex.png" alt="Profile avatar">
       </div>
       <br>
-      <div>
+      <div class="profile-name">
         <h2> Rose <span> Francis</span></h2>
       </div>
     </header>
@@ -65,9 +69,8 @@
     <main class="container">
 
       <section class="new-tweet">
-        <div id="error-message">
 
-        </div>
+        <div id="error-message"></div>
 
         <form>
           <label for="tweet-text"><h3>What are you humming about?</h3></label>
@@ -81,9 +84,7 @@
         </form>
       </section>
 
-      <section id="tweet-container">
-       
-      </section>
+      <section id="tweet-container"></section>
 
       <div>
         <button id="toggle-up" type="button"> <i class="fa-solid fa-angles-up fa-bounce"> </i></button>
@@ -91,6 +92,8 @@
       
 
     </main>
+
+    </div>
     
   </body>
 </html>

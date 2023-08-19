@@ -24,7 +24,7 @@ nav {
 }
 
 #compose-tweet-arrow {
-  color:rgba(247, 42, 42, 0.925);
+  color:red;
 }
 
 #compose-tweet-arrow:hover {
