@@ -59,5 +59,8 @@
     font-size: 0.7em;
   }
 
+  #tweet-container article {
+    height: 230px;
+  }
 
 }

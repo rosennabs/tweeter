@@ -1,7 +1,8 @@
 $(document).ready(function() {
   $('#tweet-text').on('input', function () {
+    const charLimit = 140;
     const inputLength = $(this).val().length;
-    const characterLeft = 140 - inputLength;
+    const characterLeft = charLimit - inputLength;
 
     //Target the counter in the new-tweet class section.
     const $counter = $(this).closest('.new-tweet').find('.counter');
@@ -14,8 +15,13 @@ $(document).ready(function() {
       $counter.addClass('invalid');
     } else {
       $counter.removeClass('invalid');
-    }
 
+      $('.new-tweet button').on('click', (event) => { // Reset counter to 140 after submission
+        $counter.text(charLimit);
+      });
+    }
+    
   });
+
 
 });

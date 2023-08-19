@@ -53,7 +53,9 @@ $(document).ready(function () {
     const $submitTweet = $('.new-tweet');
 
     $submitTweet.on('submit', (event) => { // Using JQuery, add an event listener to prevent default page reload behaviour
+      
       event.preventDefault();
+      
 
       const lengthOfTweet = $("#tweet-text").val().length;
       const charLimit = 140;
@@ -79,6 +81,9 @@ $(document).ready(function () {
           }
         });
 
+        $("#tweet-text").val(''); // Clear the form after submission
+        
+
       } else if (lengthOfTweet === 0) {
         $("#error-message")
           .text("⛔️ Tweet cannot be empty!")
@@ -91,6 +96,7 @@ $(document).ready(function () {
           .slideDown('slow');
         $("#error-message").css("display", "block");
       }
+      
       
   });
 
