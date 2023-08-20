@@ -8,7 +8,7 @@
     "content": {
       "text": "If I have seen further it is by standing on the shoulders of giants"
     },
-    "created_at": 1692154256757
+    "created_at": 1692153811216
   },
   {
     "user": {
@@ -19,6 +19,28 @@
     "content": {
       "text": "Je pense , donc je suis"
     },
-    "created_at": 1692240656757
+    "created_at": 1692240211216
+  },
+  {
+    "user": {
+      "name": "Amily",
+      "avatars": "https://i.imgur.com/nlhLi3I.png",
+      "handle": "@amil"
+    },
+    "content": {
+      "text": "I am a Lighthouse Labs student in the web development flex program. I am motivated to successfully complete the bootcamp and become a developer in no time!"
+    },
+    "created_at": 1692326611216
+  },
+  {
+    "user": {
+      "name": "Eureka",
+      "avatars": "https://i.imgur.com/73hZDYK.png",
+      "handle": "@JnrEureka"
+    },
+    "content": {
+      "text": "Leave the past, enjoy the very present and look forward to what the future holds"
+    },
+    "created_at": 1692413011216
   }
 ]
