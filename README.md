@@ -20,8 +20,10 @@ Tweeter is a simple, single-page Twitter clone that uses HTML5, jQuery, and CSS 
 Desktop view of Tweeter:
 !["Screenshot of a desktop view of tweeter"](https://github.com/rosennabs/tweeter/blob/master/docs/Tweeter_desktop.png)
 
+
 iPad view of Tweeter:
 !["Screenshot of an iPad view of tweeter"](https://github.com/rosennabs/tweeter/blob/master/docs/Tweeter_ipad.png)
+
 
 Smartphone view of Tweeter:
 !["Screenshot of a smartphone view of tweeter"](https://github.com/rosennabs/tweeter/blob/master/docs/Tweeter_phone.png)
