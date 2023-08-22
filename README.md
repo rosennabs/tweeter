@@ -15,6 +15,12 @@ Tweeter is a simple, single-page Twitter clone that uses HTML5, jQuery, and CSS 
 - Express
 - Node 5.10.x or above
 
+## Functionality
+
+1. Click the downward arrow button to compose your tweet in the tweet form.
+2. Watch your tweet submission display as the most recent tweet on the page.
+3. Use the toggle-up button on the right corner of the page to jump back to the top of the page anytime.
+
 ## Snapshots
 
 Desktop view of Tweeter:
