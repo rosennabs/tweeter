@@ -1,8 +1,5 @@
 /* Smartphone Styles */
 @media only screen and (max-width: 767px) {
-  nav {
-    height: 80px;
-  }
 
   .main-header img {
     max-width: 200px;
@@ -13,7 +10,7 @@
   }
 
   body {
-    font-size: 0.8em;
+    font-size: 1em;
   }
   
 }
@@ -43,24 +40,31 @@
   .header-and-main {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    justify-content: space-between;
+    width: 95%;
+    margin: 0 auto;
     margin-top: 120px;
   }
 
   .main-header {
-    width: 50%;
-    height: 390px;
-    margin: 100px 0px 0px 50px;
+    width: 25%;
+    height: 400px;
+    margin-top: 100px;
   }
 
+    .main-header img {
+      max-width: 200px;
+    }
+
   .container {
-    width: 70%;
-    margin: 100px 50px 0px 100px;
-    font-size: 0.7em;
+    width: 65%;
+    margin: 100px 0px;
+    font-size: 0.75em;
+    
   }
 
   #tweet-container article {
-    height: 230px;
+    height: 215px;
   }
 
 }
