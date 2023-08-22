@@ -1,7 +1,6 @@
 $(document).ready(function() {
 
   let lastScrollTop = 0;
-  // $(window).scrollTop(0);
 
   $(window).on("scroll", function () {
     let currentScrollTop = $(this).scrollTop();
