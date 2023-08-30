@@ -13,12 +13,9 @@ $(document).ready(function() {
     // Add or remove the "invalid" class based on the character left
     if (characterLeft < 0) {
       $counter.addClass('invalid');
+     
     } else {
       $counter.removeClass('invalid');
-
-      $('.new-tweet button').on('click', (event) => { // Reset counter to 140 after submission
-        $counter.text(charLimit);
-      });
     }
     
   });

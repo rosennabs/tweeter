@@ -61,7 +61,10 @@ $(document).ready(function () {
       const charLimit = 140;
 
       if (lengthOfTweet !== 0 && lengthOfTweet <= charLimit) {
-        $("#error-message").css("display", "none");
+       
+        //Any existing error slides up if condition is met
+        $("#error-message").slideUp();
+
 
         const $tweet = $('#tweet-text').serialize(); //turn the form data into a query string
 
@@ -75,7 +78,11 @@ $(document).ready(function () {
             // Load the latest tweets after successfully posting
             loadTweets();
 
+            //Reset counter to 140 after successful submission
+            $('.counter').text(charLimit);
+
           },
+
           error: function (xhr, status, error) {
             console.log("Error:", error);
           }
@@ -87,13 +94,13 @@ $(document).ready(function () {
       } else if (lengthOfTweet === 0) {
         $("#error-message")
           .text("⛔️ Tweet cannot be empty!")
-          .slideDown('slow');
+          .slideDown();
         $("#error-message").css("display", "block");
 
       } else if (lengthOfTweet > charLimit) {
         $("#error-message")
           .text("⛔️ Tweet exceeds character limit!")
-          .slideDown('slow');
+          .slideDown();
         $("#error-message").css("display", "block");
       }
       
