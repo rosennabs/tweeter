@@ -8,9 +8,11 @@
 
 /* Take an array of tweet objects and append each one to the #tweet-container.*/
 function renderTweets(tweetData) {
+  $('#tweet-container').empty();
   for (let tweet of tweetData) {
     const tweetArticle = createTweetElement(tweet);
     $('#tweet-container').prepend(tweetArticle);
+    $("#tweet-text").val(''); // Clear the form after submission
   }
 };
 
@@ -56,54 +58,52 @@ $(document).ready(function () {
       
       event.preventDefault();
       
-
-      const lengthOfTweet = $("#tweet-text").val().length;
+      const lengthOfTweet = $("#tweet-text").val().trim().length;
       const charLimit = 140;
+      const $tweet = $('#tweet-text').serialize(); //convert the form data into a query string
 
-      if (lengthOfTweet !== 0 && lengthOfTweet <= charLimit) {
-       
-        //Any existing error slides up if condition is met
-        $("#error-message").slideUp();
+      //Validate tweet content
 
-
-        const $tweet = $('#tweet-text').serialize(); //turn the form data into a query string
-
-        $.ajax({ //use ajax to send the POST request to the server endpoint /tweets
-          type: "POST",
-          url: "http://localhost:8080/tweets",
-          data: $tweet,
-          success: function (response) {
-            console.log("Success:", response);
-
-            // Load the latest tweets after successfully posting
-            loadTweets();
-
-            //Reset counter to 140 after successful submission
-            $('.counter').text(charLimit);
-
-          },
-
-          error: function (xhr, status, error) {
-            console.log("Error:", error);
-          }
-        });
-
-        $("#tweet-text").val(''); // Clear the form after submission
-        
-
-      } else if (lengthOfTweet === 0) {
+      if (!$tweet || lengthOfTweet === 0) {
         $("#error-message")
           .text("⛔️ Tweet cannot be empty!")
           .slideDown();
         $("#error-message").css("display", "block");
+        return;
 
-      } else if (lengthOfTweet > charLimit) {
+      }
+
+      if (lengthOfTweet > charLimit) {
         $("#error-message")
           .text("⛔️ Tweet exceeds character limit!")
           .slideDown();
         $("#error-message").css("display", "block");
+        return;
       }
-      
+
+
+      $.ajax({ //use ajax to send the POST request to the server endpoint /tweets
+        type: "POST",
+        url: "/tweets",
+        data: $tweet,
+        success: function (response) {
+
+          // Load the latest tweets after successfully posting
+          loadTweets();
+
+          //Reset counter to 140 after successful submission
+          $('.counter').text(charLimit);
+
+          //Any existing error slides up if condition is met
+          $("#error-message").slideUp();
+
+        },
+
+        error: function (xhr, status, error) {
+          console.log("Error:", error);
+        }
+      });
+
       
   });
 
@@ -113,9 +113,8 @@ $(document).ready(function () {
   function loadTweets() {
     $.ajax({ //use ajax to send the GET tweets from /tweets page
       type: "GET",
-      url: "http://localhost:8080/tweets",
+      url: "/tweets",
       success: function (response) {
-        console.log("Success: tweets loaded", response);
         renderTweets(response);
       },
       error: function (xhr, status, error) {
@@ -125,7 +124,7 @@ $(document).ready(function () {
     
   };
   
-  loadTweets()
+  loadTweets();
 
 });
 
